@@ -7,16 +7,14 @@ describe('usersReducer', () => {
         expect(usersReducer(undefined, {} as AddUsersActionType)).toEqual(initialUsersReducerState);
     });
 
-    it('should return the previous state', () => {
-        const prev = {...initialUsersReducerState};
-
+    it('should return the previous state when it receives an invalid action', () => {
         const action = {
-            type: ADD_USERS,
-            users: { results: initialUsersReducerState[0] },
-            page: 0
+            type: '💩',
+            users: { results: mockUsers[1] },
+            page: 10
         };
 
-        expect(usersReducer(prev, action)).toEqual(prev);
+        expect(usersReducer(undefined, action)).toEqual(initialUsersReducerState);
     });
 
     it('should handle an addUsersAction', () => {
