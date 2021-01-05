@@ -1,5 +1,5 @@
 import { ThunkDispatchType } from '../store';
-import { addUsers } from './UsersActions';
+import { addUsersAction } from './UsersActions';
 
 export const getUsers = (page: number) => async (dispatch: ThunkDispatchType) => {
     const seed = '🌈🌈🦄🦄';
@@ -8,7 +8,7 @@ export const getUsers = (page: number) => async (dispatch: ThunkDispatchType) =>
     try {
         const res = await fetch(url);
         const users = await res.json();
-        dispatch(addUsers({ users, page }));
+        dispatch(addUsersAction({ users, page }));
     } catch(e) {
         // TODO: add UX for errors
         console.log(e);

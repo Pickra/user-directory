@@ -3,9 +3,9 @@ import { UserData } from './User';
 
 export const ADD_USERS = 'ADD_USERS';
 export type AddUsersOptions = { users: { results: UserData[]}; page: number; };
-export type AddUsersAction = Action & AddUsersOptions;
+export type AddUsersActionType = Action & AddUsersOptions;
 
-export const addUsers = (options: AddUsersOptions) : AddUsersAction => ({
+export const addUsersAction = (options: AddUsersOptions) : AddUsersActionType => ({
     ...options,
     type: ADD_USERS
 });
