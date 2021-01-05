@@ -5,6 +5,7 @@ import { buildStore } from '../store';
 import { Main } from './Main';
 import * as reactRedux from 'react-redux';
 import { getUsersState } from '../Users/UsersReducer';
+import { mockUsers, first, last, dob } from '../Users/UserTestHelpers';
 
 let store: any;
 
@@ -32,12 +33,6 @@ describe('<Main />', () => {
   });
 
   it('should show users when they exist', () => {
-    const first = '🌮';
-    const last = '🐈';
-    const dob = { age: 5 };
-
-    const mockUsers = { 1: [{ name: { first, last }, dob, gender: '', phone: '', picture: '', email: '' }]};
-
     jest.spyOn(reactRedux, 'useSelector').mockImplementation(selector => {
       if (selector === getUsersState) { return mockUsers; }
     });
