@@ -4,8 +4,6 @@ import { UserList } from '../Users/Users';
 import { getUsersState } from '../Users/UsersReducer';
 import { getUsers } from '../Users/UsersThunks';
 
-const seed = '🌈🌈🦄🦄';
-
 interface Props {}
 
 export const Main: FunctionComponent<Props> = () => {
@@ -20,9 +18,9 @@ export const Main: FunctionComponent<Props> = () => {
   }
 
   useEffect(() => {
-    dispatch(getUsers(`https://randomuser.me/api/?page=${page}&results=10&seed=${seed}`, page));
+    dispatch(getUsers(page));
     // eslint-disable-next-line
-  }, [])
+  }, []) // only load users on init
 
   return <main className="main">
     <h1 className="main-header">Get your users, nice and hot!</h1>
