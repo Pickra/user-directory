@@ -2,7 +2,7 @@ import React, { FunctionComponent, useEffect, useState } from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { User } from '../Users/User';
 import { getUsersState } from '../Users/UsersReducer';
-import { getUsersThunk } from '../Users/UsersThunks';
+import { downloadUsersCsvThunk, getUsersThunk } from '../Users/UsersThunks';
 
 interface Props {}
 
@@ -23,8 +23,9 @@ export const Main: FunctionComponent<Props> = () => {
     // eslint-disable-next-line
   }, [page]);
 
+  const downloadCsv = () => downloadUsersCsvThunk(page);
   const onNextPage = () => setpage(page + 1);
-
+  
   const onPrevPage = () => {
     if (page === 1) { return; }
     setpage(page - 1);
@@ -34,6 +35,7 @@ export const Main: FunctionComponent<Props> = () => {
     <h1 className="main-header">Get your users, nice and hot!</h1>
     <button onClick={onNextPage}>Next page</button>
     <button onClick={onPrevPage}>Prev page</button>
+    <button onClick={downloadCsv}>downloadCsv</button>
     {renderUsers()}
   </main>;
 }
