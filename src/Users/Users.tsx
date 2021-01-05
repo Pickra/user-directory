@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 
-export interface UserInfo {
+export interface UserData {
     gender: 'string';
     name: { first: string; last: string; };
     email: string;
@@ -10,15 +10,15 @@ export interface UserInfo {
 }
 
 export interface UserListProps {
-    users: UserInfo[];
+    users: UserData[];
 }
 
 export const UserList: FunctionComponent<UserListProps> = ({ users }) => {
-    const cards = users.map(u => <User {...u} key={u.email + u.phone} />)
+    const cards = users.map(u => <User {...u} key={u.email + u.phone} />);
     return <ul className='users'>{cards}</ul>
 };
 
-const User: FunctionComponent<UserInfo> = ({
+const User: FunctionComponent<UserData> = ({
     gender,
     email,
     phone,
