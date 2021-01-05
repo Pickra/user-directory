@@ -18,10 +18,8 @@ export const Main: FunctionComponent<Props> = () => {
     return <ul className='users'>{userList}</ul>
   }
 
-  useEffect(() => {
-    dispatch(getUsers(page));
-    // eslint-disable-next-line
-  }, []) // only load users on init
+  // eslint-disable-next-line
+  useEffect(() => { dispatch(getUsers(page)) }, []) // only load users on init
 
   return <main className="main">
     <h1 className="main-header">Get your users, nice and hot!</h1>
