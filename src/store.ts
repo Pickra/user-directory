@@ -1,17 +1,27 @@
-import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import counterReducer from './features/counter/counterSlice';
+import thunk from 'redux-thunk';
+import { AnyAction } from 'redux';
+import { ThunkDispatch } from 'redux-thunk';
+import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
+import { UsersReducer } from './Users/UsersReducer';
+import { UserData } from './Users/Users';
 
-export const store = configureStore({
-  reducer: {
-    counter: counterReducer,
-  },
+export type UsersState = { [key: number]: UserData[] };
+
+export interface AppState {
+    users: UsersState;
+}
+
+export type ThunkDispatchType = ThunkDispatch<AppState, {}, AnyAction>;
+
+export const rootReducer = combineReducers({
+  users: UsersReducer
 });
 
-export type RootState = ReturnType<typeof store.getState>;
+const composeEnhancers = window['__REDUX_DEVTOOLS_EXTENSION_COMPOSE__'] as typeof compose || compose;
 
-export type AppThunk<ReturnType = void> = ThunkAction<
-  ReturnType,
-  RootState,
-  unknown,
-  Action<string>
->;
+export const buildStore = () => {
+  return createStore(
+    rootReducer,
+    composeEnhancers(applyMiddleware(thunk))
+  );
+};
