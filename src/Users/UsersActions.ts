@@ -1,5 +1,5 @@
 import { Action } from 'redux';
-import { UserData } from './Users';
+import { UserData } from './User';
 
 export const ADD_USERS = 'ADD_USERS';
 export type AddUsersOptions = { users: { results: UserData[]}; page: number; };

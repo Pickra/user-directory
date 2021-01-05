@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
-import { UserList } from '../Users/Users';
+import { User } from '../Users/User';
 import { getUsersState } from '../Users/UsersReducer';
 import { getUsers } from '../Users/UsersThunks';
 
@@ -14,7 +14,8 @@ export const Main: FunctionComponent<Props> = () => {
   const renderUsers = () => {
     const allUsers = users[page];
     if (!allUsers || !allUsers.length) { return <div>loader</div>; }
-    return <UserList users={allUsers} />;
+    const userList = allUsers.map(u => <User {...u} key={u.email} />);
+    return <ul className='users'>{userList}</ul>
   }
 
   useEffect(() => {

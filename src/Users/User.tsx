@@ -6,19 +6,11 @@ export interface UserData {
     email: string;
     picture: { large: string; },
     phone: string;
-    dob: { age: number; }
+    dob: { age: number; };
+    className?: string;
 }
 
-export interface UserListProps {
-    users: UserData[];
-}
-
-export const UserList: FunctionComponent<UserListProps> = ({ users }) => {
-    const cards = users.map(u => <User {...u} key={u.email + u.phone} />);
-    return <ul className='users'>{cards}</ul>
-};
-
-const User: FunctionComponent<UserData> = ({
+export const User: FunctionComponent<UserData> = ({
     gender,
     email,
     phone,
