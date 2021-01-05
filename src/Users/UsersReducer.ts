@@ -1,9 +1,9 @@
-import { AppState, UsersState } from '../store';
+import { AppState, UsersState } from '../store/store';
 import { AddUsersActionType, ADD_USERS } from './UsersActions';
 
-export const initialRulesReducerState = {0: []} as UsersState;
+export const initialUsersReducerState = {0: []} as UsersState;
 
-export function usersReducer(prev = initialRulesReducerState, action: AddUsersActionType) {
+export function usersReducer(prev = initialUsersReducerState, action: AddUsersActionType) {
     switch (action.type) {
         case ADD_USERS:
             const { page, users } = action;

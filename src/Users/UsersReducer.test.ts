@@ -1,18 +1,18 @@
 import { AddUsersActionType, ADD_USERS, addUsersAction } from './UsersActions';
-import { initialRulesReducerState, usersReducer } from './UsersReducer';
+import { initialUsersReducerState, usersReducer } from './UsersReducer';
 import { mockUsers } from './UserTestHelpers';
 
 describe('usersReducer', () => {
     it('should return the initial state', () => {
-        expect(usersReducer(undefined, {} as AddUsersActionType)).toEqual(initialRulesReducerState);
+        expect(usersReducer(undefined, {} as AddUsersActionType)).toEqual(initialUsersReducerState);
     });
 
     it('should return the previous state', () => {
-        const prev = {...initialRulesReducerState};
+        const prev = {...initialUsersReducerState};
 
         const action = {
             type: ADD_USERS,
-            users: { results: initialRulesReducerState[0] },
+            users: { results: initialUsersReducerState[0] },
             page: 0
         };
 

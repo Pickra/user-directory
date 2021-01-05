@@ -2,7 +2,7 @@ import React, { FunctionComponent, useEffect, useState } from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { User } from '../Users/User';
 import { getUsersState } from '../Users/UsersReducer';
-import { getUsers } from '../Users/UsersThunks';
+import { getUsersThunk } from '../Users/UsersThunks';
 
 interface Props {}
 
@@ -19,7 +19,7 @@ export const Main: FunctionComponent<Props> = () => {
   }
 
   useEffect(() => {
-    dispatch(getUsers(page));
+    dispatch(getUsersThunk(page));
     // eslint-disable-next-line
   }, [page]);
 

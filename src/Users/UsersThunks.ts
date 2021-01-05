@@ -1,7 +1,7 @@
-import { ThunkDispatchType } from '../store';
+import { ThunkDispatchType } from '../store/store';
 import { addUsersAction } from './UsersActions';
 
-export const getUsers = (page: number) => async (dispatch: ThunkDispatchType) => {
+export const getUsersThunk = (page: number) => async (dispatch: ThunkDispatchType) => {
     const seed = '🌈🌈🦄🦄';
     const url = `https://randomuser.me/api/?page=${page}&results=10&seed=${seed}`;
 
