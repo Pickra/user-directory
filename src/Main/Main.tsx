@@ -18,11 +18,22 @@ export const Main: FunctionComponent<Props> = () => {
     return <ul className='users'>{userList}</ul>
   }
 
-  // eslint-disable-next-line
-  useEffect(() => { dispatch(getUsers(page)) }, []) // only load users on init
+  useEffect(() => {
+    dispatch(getUsers(page));
+    // eslint-disable-next-line
+  }, [page]);
+
+  const onNextPage = () => setpage(page + 1);
+
+  const onPrevPage = () => {
+    if (page === 1) { return; }
+    setpage(page - 1);
+  };
 
   return <main className="main">
     <h1 className="main-header">Get your users, nice and hot!</h1>
+    <button onClick={onNextPage}>Next page</button>
+    <button onClick={onPrevPage}>Prev page</button>
     {renderUsers()}
   </main>;
 }
