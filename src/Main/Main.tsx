@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
-import { Paginator } from '../app/components/Paginator/Paginator';
+import { Paginator } from '../shared/components/Paginator/Paginator';
 import { User } from '../Users/User';
 import { getUsersState } from '../Users/UsersReducer';
 import { downloadUsersCsvThunk, getUsersThunk } from '../Users/UsersThunks';

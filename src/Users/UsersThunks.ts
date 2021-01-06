@@ -1,4 +1,4 @@
-import { downloadFile } from '../app/downloadFile';
+import { downloadFile } from '../shared/downloadFile';
 import { AppState, ThunkDispatchType } from '../store/store';
 import { addUsersAction } from './UsersActions';
 
