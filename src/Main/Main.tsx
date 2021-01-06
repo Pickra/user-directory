@@ -34,9 +34,9 @@ export const Main: FunctionComponent<Props> = () => {
 
   return <main className="main">
     <h1 className="main-header">Get your users, nice and hot!</h1>
-    <Paginator page={page} onPrevClick={onPrevPage} onNextClick={onNextPage} />
+    <Paginator page={page} onPrevClick={onPrevPage} onNextClick={onNextPage} onSpecificPageClick={setpage} />
     <button onClick={downloadCsv}>Download Csv Of Page # {page} Users</button>
     {renderUsers()}
-    <Paginator page={page} onPrevClick={onPrevPage} onNextClick={onNextPage} />
+    <Paginator page={page} onPrevClick={onPrevPage} onNextClick={onNextPage} onSpecificPageClick={setpage} />
   </main>;
 }
