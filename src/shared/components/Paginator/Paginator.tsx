@@ -13,7 +13,6 @@ export const Paginator: FunctionComponent<Props> = ({ page, classes, onNextClick
     const inputRef = useRef<HTMLInputElement>(null);
     const paginatorClasses = `paginator${classes && classes.paginator ? ` ${classes.paginator}`: ''}`;
     const inputClasses = `input${classes && classes.input ? ` ${classes.paginator}`: ''}`;
-    const prevBtnClasses = `button--primary${page === 1 ? ' button--disabled' : ''}`;
     
     const onInputPage = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -24,7 +23,9 @@ export const Paginator: FunctionComponent<Props> = ({ page, classes, onNextClick
     return <div>
         <span className='paginator-container'>
             <p className={paginatorClasses}>
-                <Button onClick={onPrevClick} className={prevBtnClasses}>Prev Page</Button>
+                <Button onClick={onPrevClick} className='button--primary' disabled={page === 1}>
+                    Prev Page
+                </Button>
                 <span>Page # {page}</span>
                 <Button onClick={onNextClick} className='button--primary'>Next Page</Button>
             </p>
