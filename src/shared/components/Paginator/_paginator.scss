@@ -1,4 +1,12 @@
 .paginator {
     display: flex;
+    max-width: 25rem;
+    flex: 1;
     justify-content: space-between;
+    align-items: center;
+
+    &-container {
+        display: flex;
+        justify-content: center;
+    }
 }

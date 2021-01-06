@@ -1,0 +1,14 @@
+:root {
+    --button-background-primary: var(--brand-1);
+    --button-background-secondary: var(--slate-2);
+    --button-background-danger: var(--danger-1);
+    --button-background-action: var(--success-2);
+    --button-background-disabled: var(--slate-6);
+    --button-background-hover-disabled: var(--slate-7);
+    
+    --button-border-primary: var(--brand-2);
+    --button-border-secondary: var(--slate-3);
+    --button-border-danger: var(--danger-2);
+    --button-border-action: var(--success-1);
+    --button-border-disabled: var(--slate-8);
+}

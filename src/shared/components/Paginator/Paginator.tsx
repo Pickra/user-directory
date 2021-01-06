@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useRef } from 'react';
-import { Button } from '../Button';
+import { Button } from '../Buttons/Button';
 
 interface Props {
     page: number;
@@ -13,7 +13,7 @@ export const Paginator: FunctionComponent<Props> = ({ page, classes, onNextClick
     const inputRef = useRef<HTMLInputElement>(null);
     const paginatorClasses = `paginator${classes && classes.paginator ? ` ${classes.paginator}`: ''}`;
     const inputClasses = `input${classes && classes.input ? ` ${classes.paginator}`: ''}`;
-    const disablePrevButton = page === 1;
+    const prevBtnClasses = `button--primary${page === 1 ? ' button--disabled' : ''}`;
     
     const onInputPage = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -22,17 +22,19 @@ export const Paginator: FunctionComponent<Props> = ({ page, classes, onNextClick
     };
 
     return <div>
-        <p className={paginatorClasses}>
-            <Button onClick={onPrevClick} disabled={disablePrevButton}>Prev Page</Button>
-            <span>Page # {page}</span>
-            <Button onClick={onNextClick}>Next Page</Button>
-        </p>
+        <span className='paginator-container'>
+            <p className={paginatorClasses}>
+                <Button onClick={onPrevClick} className={prevBtnClasses}>Prev Page</Button>
+                <span>Page # {page}</span>
+                <Button onClick={onNextClick} className='button--primary'>Next Page</Button>
+            </p>
+        </span>
         <form onSubmit={onInputPage}>
             <label>
                 <span>Select Page #</span>
                 <input className={inputClasses} defaultValue={page} ref={inputRef}/>
             </label>
-            <Button type='submit'>Go!</Button>
+            <Button type='submit' className='button--action'>Go!</Button>
         </form>
     </div>;
 };
