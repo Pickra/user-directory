@@ -1,5 +1,6 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
+import { Paginator } from '../app/components/Paginator/Paginator';
 import { User } from '../Users/User';
 import { getUsersState } from '../Users/UsersReducer';
 import { downloadUsersCsvThunk, getUsersThunk } from '../Users/UsersThunks';
@@ -33,9 +34,9 @@ export const Main: FunctionComponent<Props> = () => {
 
   return <main className="main">
     <h1 className="main-header">Get your users, nice and hot!</h1>
-    <button onClick={onNextPage}>Next page</button>
-    <button onClick={onPrevPage}>Prev page</button>
-    <button onClick={downloadCsv}>downloadCsv</button>
+    <Paginator page={page} onPrevClick={onPrevPage} onNextClick={onNextPage} />
+    <button onClick={downloadCsv}>Download Csv Of Page # {page} Users</button>
     {renderUsers()}
+    <Paginator page={page} onPrevClick={onPrevPage} onNextClick={onNextPage} />
   </main>;
 }
