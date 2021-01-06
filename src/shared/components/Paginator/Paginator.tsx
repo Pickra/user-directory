@@ -9,7 +9,9 @@ interface Props {
     classes?: { paginator?: string; input?: string;};
 }
 
-export const Paginator: FunctionComponent<Props> = ({ page, classes, onNextClick, onPrevClick, onSpecificPageClick }) => {
+export const Paginator: FunctionComponent<Props> = ({
+    classes, page, onNextClick, onPrevClick, onSpecificPageClick
+}) => {
     const inputRef = useRef<HTMLInputElement>(null);
     const paginatorClasses = `paginator${classes && classes.paginator ? ` ${classes.paginator}`: ''}`;
     const inputClasses = `input${classes && classes.input ? ` ${classes.paginator}`: ''}`;
@@ -33,7 +35,7 @@ export const Paginator: FunctionComponent<Props> = ({ page, classes, onNextClick
         <form onSubmit={onInputPage}>
             <label>
                 <span>Select Page #</span>
-                <input className={inputClasses} defaultValue={page} ref={inputRef}/>
+                <input className={inputClasses} ref={inputRef}/>
             </label>
             <Button type='submit' className='button--action'>Go!</Button>
         </form>

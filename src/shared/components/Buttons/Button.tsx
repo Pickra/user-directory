@@ -9,7 +9,7 @@ export const Button: FunctionComponent<Props> = ({ children, ...rest }) => {
     const btnClasses = () => {
         let classes = `button`;
         if (className) { classes = `${classes} ${className}`; }
-        if (disabledText) { classes = `${classes} button--disabled`; }
+        if (disabled) { classes = `${classes} button--disabled`; }
 
         return classes;
     }
