@@ -40,6 +40,6 @@ export const Users: FunctionComponent<UsersProps> = ({ data }) => {
 
     return <section>
         <Loader show={showLoader} />
-        <ul className='users'>{userList}</ul>
+        <ul className='users' aria-live='polite'>{userList}</ul>
     </section>;
 };
