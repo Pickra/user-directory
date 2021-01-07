@@ -1,14 +1,13 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { Router, RouteComponentProps } from "@reach/router";
+import { Router } from "@reach/router";
 
 import './index.scss';
 import { Main, MainContent } from './Main/Main';
 import { store } from './store/store';
 import * as serviceWorker from './serviceWorker';
-
-const Home: FunctionComponent<RouteComponentProps> = () => <div>poo</div>;
+import { Home } from './Home/Home';
 
 ReactDOM.render(
   <React.StrictMode>

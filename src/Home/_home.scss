@@ -1,0 +1,9 @@
+// TODO: get CRA/webpack to handle images
+// https://github.com/facebook/create-react-app/issues/9870
+.home {
+    height: 100vh;
+    background-image: url('https://wallpaperaccess.com/full/1146052.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
