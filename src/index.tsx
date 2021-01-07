@@ -14,6 +14,7 @@ ReactDOM.render(
     <Provider store={store}>
       <Router basepath='/'>
         <Home path='/' />
+        {/* TODO: fix Main route so you don't need the redirect */}
         <Redirect to={'1'} from={'users'} noThrow />
         <Main path='users'>
           <MainContent path=':page' />
