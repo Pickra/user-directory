@@ -1,8 +1,9 @@
 import { navigate, RouteComponentProps, useParams } from '@reach/router';
 import React, { Fragment, FunctionComponent, useEffect } from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
+import { Button } from '../shared/components/Buttons/Button';
 import { Paginator } from '../shared/components/Paginator/Paginator';
-import { User } from '../Users/User';
+import { User, Users } from '../Users/User';
 import { getUsersState } from '../Users/UsersReducer';
 import { downloadUsersCsvThunk, getUsersThunk } from '../Users/UsersThunks';
 
@@ -20,13 +21,6 @@ export const MainContent: FunctionComponent<MainContentProps> = () => {
   const users = useSelector(getUsersState, shallowEqual);
   const { page } = useParams();
   const dispatch = useDispatch();
-
-  const renderUsers = () => {
-    const allUsers = users[page];
-    if (!allUsers || !allUsers.length) { return <div>loader</div>; }
-    const userList = allUsers.map(u => <User {...u} key={u.email} />);
-    return <ul className='users'>{userList}</ul>
-  }
 
   useEffect(() => {
     dispatch(getUsersThunk(+page));
@@ -51,8 +45,10 @@ export const MainContent: FunctionComponent<MainContentProps> = () => {
       onNextClick={onNextPage}
       onSpecificPageClick={handleSpecificPageClick}
     />
-    <button onClick={downloadCsv}>Download Csv Of Page # {page} Users</button>
-    {renderUsers()}
+    <Button onClick={downloadCsv} className='button--action'>
+      Download Csv Of Page # {page} Users
+    </Button>
+    <Users data={users[+page]} />
     <Paginator
       page={+page}
       onPrevClick={onPrevPage}

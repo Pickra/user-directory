@@ -25,3 +25,13 @@ export const User: FunctionComponent<UserData> = ({
     <span>age: {age}</span>
     <span>gender: {gender}</span>
 </li>;
+
+interface UsersProps {
+    data: UserData[];
+}
+
+export const Users: FunctionComponent<UsersProps> = ({ data }) => {
+    if (!data || !data.length) { return <div>loader</div>; }
+    const userList = data.map(d => <User {...d} key={d.email} />);
+    return <ul className='users'>{userList}</ul>
+};

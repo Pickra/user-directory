@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { User } from './User';
+import { User, Users } from './User';
 import { first, last, dob, mockUsers } from './UserTestHelpers';
 
 describe('<User />', () => {
@@ -10,5 +10,12 @@ describe('<User />', () => {
 
         expect(getByText(`${first} ${last}`)).toBeInTheDocument();
         expect(getByText(`age: ${dob.age}`)).toBeInTheDocument();
+    });
+});
+
+describe('<Users />', () => {
+    it('should render a loader when there are no users', () => {
+       const { getByText } = render(<Users data={[]} />);
+       expect(getByText(/loader/i)).toBeInTheDocument();
     });
 });
