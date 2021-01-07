@@ -3,7 +3,7 @@ import React, { Fragment, FunctionComponent, useEffect } from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { Button } from '../shared/components/Buttons/Button';
 import { Paginator } from '../shared/components/Paginator/Paginator';
-import { User, Users } from '../Users/User';
+import { Users } from '../Users/User';
 import { getUsersState } from '../Users/UsersReducer';
 import { downloadUsersCsvThunk, getUsersThunk } from '../Users/UsersThunks';
 
