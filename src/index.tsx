@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { Router } from "@reach/router";
+import { Redirect, Router } from "@reach/router";
 
 import './index.scss';
 import { Main, MainContent } from './Main/Main';
@@ -14,6 +14,7 @@ ReactDOM.render(
     <Provider store={store}>
       <Router basepath='/'>
         <Home path='/' />
+        <Redirect to={'1'} from={'users'} noThrow />
         <Main path='users'>
           <MainContent path=':page' />
         </Main>
