@@ -20,19 +20,20 @@ interface MainContentProps extends RouteComponentProps {}
 export const MainContent: FunctionComponent<MainContentProps> = () => {
   const users = useSelector(getUsersState, shallowEqual);
   const { page } = useParams();
+  const pageNumber = +page;
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getUsersThunk(+page));
+    dispatch(getUsersThunk(pageNumber));
     // eslint-disable-next-line
-  }, [page]);
+  }, [pageNumber]);
 
-  const downloadCsv = () => downloadUsersCsvThunk(+page);
-  const onNextPage = () => navigate(`${+page + 1}`);
+  const downloadCsv = () => downloadUsersCsvThunk(pageNumber);
+  const onNextPage = () => navigate(`${pageNumber + 1}`);
   
   const onPrevPage = () => {
-    if (+page === 1) { return; }
-    navigate(`${+page - 1}`);
+    if (pageNumber === 1) { return; }
+    navigate(`${pageNumber - 1}`);
   };
 
   const handleSpecificPageClick = (selectedPage: number) => navigate(`${selectedPage}`);
@@ -40,17 +41,17 @@ export const MainContent: FunctionComponent<MainContentProps> = () => {
   return <Fragment>
     <h1 className="main-header">Get your users, nice and hot!</h1>
     <Paginator
-      page={+page}
+      page={pageNumber}
       onPrevClick={onPrevPage}
       onNextClick={onNextPage}
       onSpecificPageClick={handleSpecificPageClick}
     />
     <Button onClick={downloadCsv} className='button--action'>
-      Download Csv Of Page # {page} Users
+      Download Csv Of Page # {pageNumber} Users
     </Button>
-    <Users data={users[+page]} />
+    <Users data={users[pageNumber]} />
     <Paginator
-      page={+page}
+      page={pageNumber}
       onPrevClick={onPrevPage}
       onNextClick={onNextPage}
       onSpecificPageClick={handleSpecificPageClick}
