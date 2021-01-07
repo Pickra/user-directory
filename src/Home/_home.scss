@@ -8,4 +8,7 @@
     background-size: cover;
     color: var(--light);
     text-align: center;
+    background-color: var(--slate-8);
+
+    &__link { color: var(--brand-3); }
 }
