@@ -1,0 +1,21 @@
+.loader {
+    margin: 0 auto;
+    color: var(--brand-2);
+    font-size: 1.5rem;
+    font-weight: var(--font-weight-bold);
+    overflow: hidden;
+    white-space: nowrap;
+    animation: expand 2.5s steps(30, end) infinite;
+
+    &-container {
+        display: flex;
+        width: fit-content;
+        justify-content: center;
+        margin: 0 auto;
+    }
+}
+
+@keyframes expand {
+    from { width: 0 }
+    to { width: 100% }
+}

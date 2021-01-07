@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+import { Loader } from '../shared/components/Loader/Loader';
 
 export interface UserData {
     gender: 'string';
@@ -31,7 +32,14 @@ interface UsersProps {
 }
 
 export const Users: FunctionComponent<UsersProps> = ({ data }) => {
-    if (!data || !data.length) { return <div>loader</div>; }
-    const userList = data.map(d => <User {...d} key={d.email} />);
-    return <ul className='users'>{userList}</ul>
+    const showLoader = !data || !data.length;
+
+    const userList = !showLoader
+        ? data.map(d => <User {...d} key={d.email} />)
+        : '';
+
+    return <section>
+        <Loader show={showLoader} />
+        <ul className='users'>{userList}</ul>
+    </section>;
 };
