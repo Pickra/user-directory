@@ -1,4 +1,4 @@
-import { navigate, RouteComponentProps, useParams } from '@reach/router';
+import { Link, navigate, RouteComponentProps, useParams } from '@reach/router';
 import React, { Fragment, FunctionComponent, useEffect } from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { Button } from '../shared/components/Buttons/Button';
@@ -40,6 +40,7 @@ export const MainContent: FunctionComponent<MainContentProps> = () => {
 
   return <Fragment>
     <h1 className="main-header">Get your users, nice and hot!</h1>
+    <Link className='link' to='/'>Go Home</Link>
     <Paginator
       page={pageNumber}
       onPrevClick={onPrevPage}

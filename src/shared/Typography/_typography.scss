@@ -46,10 +46,13 @@ input, select, textarea {
 
 p { margin: 1rem 0; }
 
-a {
+.link {
   display: inline-flex;
   font-weight: var(--font-weight-bold);
   align-items: center;
+  color: var(--brand-2);
   transition: var(--transition);
   cursor: pointer;
+
+  &--light { color: var(--brand-3); }
 }
