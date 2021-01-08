@@ -19,7 +19,7 @@ export const Button: FunctionComponent<Props> = ({ children, ...rest }) => {
         onClick(e);
     }
 
-    return <button {...props} className={btnClasses()} onClick={handleClick} >
+    return <button {...props} className={btnClasses()} onClick={handleClick}>
         {disabledText}
         {children}
     </button>;

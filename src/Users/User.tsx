@@ -30,7 +30,7 @@ export const User: FunctionComponent<UserData> = ({
                 setWidth(`${width - 48}px`);
             }
         }, 50);
-    }, [userRef.current]);
+    }, [userRef]);
 
     return <li className='user' ref={userRef}>
         <h2 className='user__name'>{first} {last}</h2>
