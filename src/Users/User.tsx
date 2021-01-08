@@ -20,19 +20,19 @@ export const User: FunctionComponent<UserData> = ({
     name: { first, last },
     picture: { large }
 }) => {
-    const userRef = useRef<HTMLLIElement>(null);
+    const liRef = useRef<HTMLLIElement>(null);
     const [width, setWidth] = useState('');
 
     useEffect(() => {
-        setTimeout(() => {
-            if (userRef.current) {
-                const { width } = userRef.current.getBoundingClientRect();
+        setTimeout(() => { // TODO: find a less hack way to handle the delay for getting the li width
+            if (liRef.current) {
+                const { width } = liRef.current.getBoundingClientRect();
                 setWidth(`${width - 48}px`);
             }
         }, 50);
-    }, [userRef]);
+    }, [liRef]);
 
-    return <li className='user' ref={userRef}>
+    return <li className='user' ref={liRef}>
         <h2 className='user__name'>{first} {last}</h2>
         <div className='user__header'>
             <img role='presentation' className='user__img' src={large} />
