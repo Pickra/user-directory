@@ -7,7 +7,7 @@ interface Props {
 
 export const Details: FunctionComponent<Props> = ({ title, children, ...rest }) => {
     return <details className='details' {...rest}>
-        <summary>{title}</summary>
+        <summary tabIndex={0}>{title}</summary>
         {children}
     </details>;
 };

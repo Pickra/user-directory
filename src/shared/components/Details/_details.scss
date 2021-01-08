@@ -17,6 +17,8 @@
             cursor: pointer;
             transition: var(--transition);
         }
+
+        &:focus { box-shadow: 0px 2px 2px 2px var(--brand-2); }
     }
 
     @keyframes fadeIn {
