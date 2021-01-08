@@ -5,11 +5,11 @@
     font-weight: var(--font-weight-bold);
     overflow: hidden;
     white-space: nowrap;
-    animation: expand 2.5s steps(30, end) infinite;
+    animation: expand 3s steps(60, end) infinite;
 
     &-container {
         display: flex;
-        width: fit-content;
+        width: 15rem;
         justify-content: center;
         margin: 0 auto;
     }

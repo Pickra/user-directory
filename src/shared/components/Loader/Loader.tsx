@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 
-export const defaultLoaderText = "I'm so sick of all this loading...";
+export const defaultLoaderText = 'are we there yet?';
 
 interface Props {
     show: boolean;
