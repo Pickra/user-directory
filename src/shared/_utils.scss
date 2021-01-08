@@ -16,3 +16,12 @@
   // Text won't wrap to a second line.
   white-space: nowrap;
 }
+
+@mixin row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
+}
+
+.row { @include row; }

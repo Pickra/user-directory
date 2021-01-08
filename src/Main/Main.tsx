@@ -39,17 +39,22 @@ export const MainContent: FunctionComponent<MainContentProps> = () => {
   const handleSpecificPageClick = (selectedPage: number) => navigate(`${selectedPage}`);
 
   return <Fragment>
-    <h1 className="main-header">Get your users, nice and hot!</h1>
-    <Link className='link' to='/'>Go Home</Link>
+    <h1 className="main__header">Users page # {pageNumber}</h1>
+    <div className='row'>
+      <Link className='link' to='/'>Go Home</Link>
+    </div>
     <Paginator
       page={pageNumber}
       onPrevClick={onPrevPage}
       onNextClick={onNextPage}
       onSpecificPageClick={handleSpecificPageClick}
     />
-    <Button onClick={downloadCsv} className='button--action'>
-      Download Csv Of Page # {pageNumber} Users
-    </Button>
+    <div className='row'>
+      <span>Download Users CSV </span>
+      <Button onClick={downloadCsv} className='button--action'>
+        Page #{pageNumber}
+      </Button>
+    </div>
     <Users data={users[pageNumber]} />
     <Paginator
       page={pageNumber}

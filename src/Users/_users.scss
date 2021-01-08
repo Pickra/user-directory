@@ -1,9 +1,8 @@
 .users {
-    display: flex;
+    @include row;
     margin: 0;
     padding: 0;
     flex-wrap: wrap;
-    justify-content: center;
     list-style: none;
 }
 
@@ -12,6 +11,7 @@
 
     margin: 0.5rem;
     padding: 1rem;
+    min-width: 16rem;
     box-shadow: 0px 0px 0px 1px var(--brand-2);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
@@ -19,9 +19,9 @@
     &__name { word-break: break-word; }
 
     &__header {
-        display: flex;
+        @include row;
+
         padding: 1rem 0;
-        justify-content: center;
         margin-bottom: 0.5rem;
         background-color: var(--brand-2);
         border-radius: 5%;

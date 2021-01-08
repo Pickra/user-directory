@@ -37,12 +37,12 @@ export const User: FunctionComponent<UserData> = ({
         <div className='user__header'>
             <img className='user__img' src={large} alt={`${first} ${last}`} />
         </div>
-        <Details title={`${first} ${last} details`}>
+        <Details title={`${first} ${last} Details`}>
             <ul className='details__content user__details' style={{ width: width }}>
-                <li className='user__stat'>email: {email}</li>
-                <li className='user__stat'>phone: {phone}</li>
-                <li className='user__stat'>age: {age}</li>
-                <li className='user__stat'>gender: {gender}</li>
+                <li className='user__stat'><strong>Email:</strong> {email}</li>
+                <li className='user__stat'><strong>Phone:</strong> {phone}</li>
+                <li className='user__stat'><strong>Age:</strong> {age}</li>
+                <li className='user__stat'><strong>Gender:</strong> {gender}</li>
             </ul>
         </Details>
     </li>

@@ -20,6 +20,9 @@ ReactDOM.render(
           <MainContent path=':page' />
         </Main>
       </Router>
+      <footer className='row'>
+        Copyright {new Date().getFullYear()}: Dragons And Unicorns
+      </footer>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

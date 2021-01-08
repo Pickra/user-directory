@@ -22,24 +22,22 @@ export const Paginator: FunctionComponent<Props> = ({
         onSpecificPageClick(+inputRef.current.value);
     };
 
-    return <div>
-        <span className='paginator-container'>
-            <div className={paginatorClasses}>
-                <Button
-                    onClick={onPrevClick}
-                    className='button--primary'
-                    disabled={page === 1}
-                >Prev Page</Button>
-                <form className='paginator__input' onSubmit={onInputPage}>
-                    <Input
-                        type='number'
-                        ref={inputRef}
-                        labelText='Set Page #'
-                    />
-                    <Button type='submit' className='button--action'>Go!</Button>
-                </form>
-                <Button onClick={onNextClick} className='button--primary'>Next Page</Button>
-            </div>
-        </span>
+    return <div className='paginator-container'>
+        <div className={paginatorClasses}>
+            <Button
+                onClick={onPrevClick}
+                className='button--primary'
+                disabled={page === 1}
+            >Prev Page</Button>
+            <form className='paginator__input' onSubmit={onInputPage}>
+                <Input
+                    type='number'
+                    ref={inputRef}
+                    labelText='Set Page #'
+                />
+                <Button type='submit' className='button--action'>Go!</Button>
+            </form>
+            <Button onClick={onNextClick} className='button--primary'>Next Page</Button>
+        </div>
     </div>;
 };

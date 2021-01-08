@@ -54,5 +54,9 @@ p { margin: 1rem 0; }
   transition: var(--transition);
   cursor: pointer;
 
-  &--light { color: var(--brand-3); }
+  &--light { color: var(--brand-4); }
+}
+
+footer {
+  height: 5vh;
 }
