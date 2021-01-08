@@ -28,16 +28,20 @@ export const Paginator: FunctionComponent<Props> = ({
                 <Button onClick={onPrevClick} className='button--primary' disabled={page === 1}>
                     Prev Page
                 </Button>
-                <span>Page # {page}</span>
+                <form onSubmit={onInputPage}>
+                    <label>
+                        <span>Page #</span>
+                        <input
+                            className={inputClasses}
+                            type='number'
+                            defaultValue={page}
+                            ref={inputRef}
+                        />
+                    </label>
+                    <Button type='submit' className='button--action'>Go!</Button>
+                </form>
                 <Button onClick={onNextClick} className='button--primary'>Next Page</Button>
             </p>
         </span>
-        <form onSubmit={onInputPage}>
-            <label>
-                <span>Select Page #</span>
-                <input className={inputClasses} ref={inputRef}/>
-            </label>
-            <Button type='submit' className='button--action'>Go!</Button>
-        </form>
     </div>;
 };
