@@ -1,0 +1,26 @@
+.details {
+    &[open] &__content { animation: fadeIn 1s; }
+
+    summary {
+        display: flex;
+        padding: 0.25rem;
+        align-items: center;
+        transition: var(--transition);
+        box-shadow: 0px 0px 0px 1px var(--brand-2);
+        border-radius: var(--border-radius);
+
+        &::-webkit-details-marker { display: none; }
+
+        &:hover {
+            background-color: var(--brand-2);
+            color: var(--light);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+}
