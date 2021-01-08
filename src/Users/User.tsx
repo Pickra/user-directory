@@ -35,7 +35,7 @@ export const User: FunctionComponent<UserData> = ({
     return <li className='user' ref={userRef}>
         <h2 className='user__name'>{first} {last}</h2>
         <div className='user__header'>
-            <img className='user__img' src={large} alt={`${first} ${last}`} />
+            <img role='presentation' className='user__img' src={large} />
         </div>
         <Details title={`${first} ${last} Details`}>
             <ul className='details__content user__details' style={{ width: width }}>
