@@ -1,4 +1,5 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useEffect, useRef, useState } from 'react';
+import { Details } from '../shared/components/Details/Details';
 import { Loader } from '../shared/components/Loader/Loader';
 
 export interface UserData {
@@ -18,14 +19,35 @@ export const User: FunctionComponent<UserData> = ({
     dob: { age },
     name: { first, last },
     picture: { large }
-}) => <li>
-    <h2>{first} {last}</h2>
-    <img src={large} alt={`${first} ${last}`} />
-    <span>email: {email}</span>
-    <span>phone: {phone}</span>
-    <span>age: {age}</span>
-    <span>gender: {gender}</span>
-</li>;
+}) => {
+    const userRef = useRef<HTMLLIElement>(null);
+    const [width, setWidth] = useState('');
+
+    useEffect(() => {
+        setTimeout(() => {
+            if (userRef.current) {
+                const { width } = userRef.current.getBoundingClientRect();
+                setWidth(`${width - 48}px`);
+            }
+        }, 50);
+    }, [userRef.current]);
+
+
+    return <li className='user' ref={userRef}>
+        <div className='user__header'>
+            <h2 className='user__name'>{first} {last}</h2>
+            <img className='user__img' src={large} alt={`${first} ${last}`} />
+        </div>
+        <Details title={`${first} ${last} details`}>
+            <ul className='details__content user__details' style={{ width: width }}>
+                <li className='user__stat'>email: {email}</li>
+                <li className='user__stat'>phone: {phone}</li>
+                <li className='user__stat'>age: {age}</li>
+                <li className='user__stat'>gender: {gender}</li>
+            </ul>
+        </Details>
+    </li>
+};
 
 interface UsersProps {
     data: UserData[];
