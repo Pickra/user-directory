@@ -32,10 +32,9 @@ export const User: FunctionComponent<UserData> = ({
         }, 50);
     }, [userRef.current]);
 
-
     return <li className='user' ref={userRef}>
+        <h2 className='user__name'>{first} {last}</h2>
         <div className='user__header'>
-            <h2 className='user__name'>{first} {last}</h2>
             <img className='user__img' src={large} alt={`${first} ${last}`} />
         </div>
         <Details title={`${first} ${last} details`}>
