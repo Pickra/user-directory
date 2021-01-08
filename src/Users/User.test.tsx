@@ -10,7 +10,7 @@ describe('<User />', () => {
         const { getByText } = render(<User {...user} />)
 
         expect(getByText(`${first} ${last}`)).toBeInTheDocument();
-        expect(getByText(`age: ${dob.age}`)).toBeInTheDocument();
+        getByText((content) => content === `${dob.age}`);
     });
 });
 
