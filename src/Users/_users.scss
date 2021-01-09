@@ -42,21 +42,20 @@
         background-color: var(--brand-3);
         border-radius: var(--border-radius);
         box-shadow: var(--box-shadow);
-        list-style-type: none;
     }
 
     &__stat { margin: 0.25rem; }
+}
 
-    // .user__page styles; the user list/ user container
-    &__page {
-        padding: 1rem;
-        background-color: var(--brand-4);
-      
-        &-header {
-          @include row;
-      
-          min-height: 10vh;
-          flex-direction: column;
-        }
+// the user list/user container
+.user-page {
+    padding: 1rem;
+    background-color: var(--brand-4);
+    
+    &__header {
+        @include row;
+    
+        min-height: 10vh;
+        flex-direction: column;
     }
 }
