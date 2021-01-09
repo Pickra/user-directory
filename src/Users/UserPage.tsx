@@ -32,7 +32,7 @@ export const UserPage: FunctionComponent<UserPageProps> = ({
   }, {});
 
   return <Fragment>
-    <h1 className='user-page__header'>Users page # {pageNumber}</h1>
+    <h1 className='user-page__header'>Users Page # {pageNumber}</h1>
     <ErrorNotification errors={userErrors} />
     <div className='row'>
       <Link className='link' to='/'>Go Home</Link>
