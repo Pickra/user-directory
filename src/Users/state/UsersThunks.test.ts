@@ -1,5 +1,5 @@
 import { MockStore } from 'redux-mock-store';
-import { store } from '../store/store';
+import { store } from '../../store/store';
 import { ADD_USERS } from './UsersActions';
 import { getUsersThunk } from './UsersThunks';
 

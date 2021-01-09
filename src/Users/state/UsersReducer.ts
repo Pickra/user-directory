@@ -1,4 +1,4 @@
-import { AppState, UsersState } from '../store/store';
+import { AppState, UsersState } from '../../store/store';
 import { AddUsersActionType, ADD_USERS } from './UsersActions';
 
 export const initialUsersReducerState = {0: []} as UsersState;

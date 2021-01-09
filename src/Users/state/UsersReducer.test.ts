@@ -1,6 +1,6 @@
 import { AddUsersActionType, ADD_USERS, addUsersAction } from './UsersActions';
 import { initialUsersReducerState, usersReducer } from './UsersReducer';
-import { mockUsers } from './UserTestHelpers';
+import { mockUsers } from '../UserTestHelpers';
 
 describe('usersReducer', () => {
     it('should return the initial state', () => {

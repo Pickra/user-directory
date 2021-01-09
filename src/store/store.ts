@@ -2,7 +2,7 @@ import thunk from 'redux-thunk';
 import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
-import { usersReducer } from '../Users/UsersReducer';
+import { usersReducer } from '../Users/state/UsersReducer';
 import { UserData } from '../Users/User';
 
 export type UsersState = { [key: number]: UserData[] };

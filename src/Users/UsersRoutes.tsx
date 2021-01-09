@@ -2,8 +2,8 @@ import { navigate, RouteComponentProps, useParams } from '@reach/router';
 import React, { FunctionComponent, useEffect } from 'react';
 import { useSelector, shallowEqual, useDispatch } from 'react-redux';
 import { UserPage } from './UserPage';
-import { getUsersState } from './UsersReducer';
-import { getUsersThunk, downloadUsersCsvThunk } from './UsersThunks';
+import { getUsersState } from './state/UsersReducer';
+import { getUsersThunk, downloadUsersCsvThunk } from './state/UsersThunks';
 
 interface UsersRouteProps extends RouteComponentProps {
     children: React.ReactNode;

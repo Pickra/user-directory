@@ -1,5 +1,5 @@
-import { downloadFile } from '../shared/downloadFile';
-import { AppState, ThunkDispatchType } from '../store/store';
+import { downloadFile } from '../../shared/downloadFile';
+import { AppState, ThunkDispatchType } from '../../store/store';
 import { addUsersAction } from './UsersActions';
 
 export const seed = '&seed=🌈🌈🦄🦄';

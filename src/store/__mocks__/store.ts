@@ -1,7 +1,7 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { AppState, ThunkDispatchType } from '../store';
-import { initialUsersReducerState } from '../../Users/UsersReducer';
+import { initialUsersReducerState } from '../../Users/state/UsersReducer';
 
 const mockStore = configureMockStore<AppState, ThunkDispatchType>([thunk]);
 
