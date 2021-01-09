@@ -16,7 +16,7 @@ interface UserPageProps {
 export const UserPage: FunctionComponent<UserPageProps> = ({
   pageNumber, users, downloadCsv, onPrevPage, onNextPage, onSpecificPageClick
 }) => <Fragment>
-  <h1 className="main__header">Users page # {pageNumber}</h1>
+  <h1 className='user__page-header'>Users page # {pageNumber}</h1>
   <div className='row'>
     <Link className='link' to='/'>Go Home</Link>
   </div>

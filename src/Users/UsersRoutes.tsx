@@ -9,7 +9,7 @@ interface UsersRouteProps extends RouteComponentProps {
     children: React.ReactNode;
 }
   
-export const UsersRoute: FunctionComponent<UsersRouteProps> = ({ children }) => <main className="main">
+export const UsersRoute: FunctionComponent<UsersRouteProps> = ({ children }) => <main className='user_page'>
     {children}
 </main>;
 

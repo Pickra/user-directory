@@ -46,4 +46,17 @@
     }
 
     &__stat { margin: 0.25rem; }
+
+    // .user__page styles; the user list/ user container
+    &__page {
+        padding: 1rem;
+        background-color: var(--brand-4);
+      
+        &-header {
+          @include row;
+      
+          min-height: 10vh;
+          flex-direction: column;
+        }
+    }
 }
