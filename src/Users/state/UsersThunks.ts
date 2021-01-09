@@ -1,6 +1,7 @@
 import { downloadFile } from '../../shared/downloadFile';
 import { AppState, ThunkDispatchType } from '../../store/store';
 import { addUsersAction } from './UsersActions';
+import { addUsersDownloadError, addUsersError } from '../../shared/components/Errors/ErrorActions';
 
 export const seed = '&seed=🌈🌈🦄🦄';
 export const domain = 'https://randomuser.me'
@@ -18,12 +19,12 @@ export const getUsersThunk = (page: number) => async (dispatch: ThunkDispatchTyp
         const users = await res.json();
         dispatch(addUsersAction({ users, page }));
     } catch(e) {
-        // TODO: add UX for errors
+        dispatch(addUsersError(`Fetching Users Error: ${e}`));
         console.log(e);
     }
 };
 
-export const downloadUsersCsvThunk = async (page: number) => {
+export const downloadUsersCsvThunk = (page: number) => async (dispatch: ThunkDispatchType) => {
     const url = `${domain}/api/?page=${page}${results}${seed}${includedParams}&format=csv&dl`;
 
     try {
@@ -31,7 +32,7 @@ export const downloadUsersCsvThunk = async (page: number) => {
         const data = await res.text();
         downloadFile(data, page);
     } catch(e) {
-        // TODO: add UX for errors
+        dispatch(addUsersDownloadError(`Downloading Users Error: ${e}`));
         console.log(e);
     }
 };

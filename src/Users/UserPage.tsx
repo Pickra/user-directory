@@ -14,15 +14,20 @@ interface UserPageProps {
   onPrevPage: () => void;
   onNextPage: () => void;
   onSpecificPageClick: (selectedPageNumber: number) => void;
+  onCloseUsersError: () => void;
+  onCloseUsersDownloadError: () => void;
 }
 
 export const UserPage: FunctionComponent<UserPageProps> = ({
-  pageNumber, users, errors, downloadCsv, onPrevPage, onNextPage, onSpecificPageClick
+  pageNumber, users, errors,
+  downloadCsv, onPrevPage, onNextPage, onSpecificPageClick, onCloseUsersError, onCloseUsersDownloadError
 }) => {
   const userErrors = Object.keys(errors).reduce((acc, nxt) => {
+    const close = nxt === 'fetch' ? onCloseUsersError : onCloseUsersDownloadError;
+
     return {
       ...acc,
-      [nxt]: { name: errors[nxt], close: () => {}}
+      [nxt]: { name: errors[nxt], close }
     }
   }, {});
 

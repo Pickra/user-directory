@@ -5,6 +5,7 @@ import { UserPage } from './UserPage';
 import { getUsersState } from './state/UsersReducer';
 import { getErrorsState } from '../shared/components/Errors/ErrorReducer';
 import { getUsersThunk, downloadUsersCsvThunk } from './state/UsersThunks';
+import { addUsersDownloadError, addUsersError } from '../shared/components/Errors/ErrorActions';
 
 interface UsersRouteProps extends RouteComponentProps {
     children: React.ReactNode;
@@ -28,7 +29,7 @@ export const UsersPageRoute: FunctionComponent<UsersPageRouteProps> = () => {
     // eslint-disable-next-line
   }, [pageNumber]);
 
-  const downloadCsv = () => downloadUsersCsvThunk(pageNumber);
+  const downloadCsv = () => dispatch(downloadUsersCsvThunk(pageNumber));
   const onNextPage = () => navigate(`${pageNumber + 1}`);
   
   const onPrevPage = () => {
@@ -38,6 +39,9 @@ export const UsersPageRoute: FunctionComponent<UsersPageRouteProps> = () => {
 
   const handleSpecificPageClick = (selectedPage: number) => navigate(`${selectedPage}`);
 
+  const onCloseUsersError = () => dispatch(addUsersError(''));
+  const onCloseUsersDownloadError = () => dispatch(addUsersDownloadError(''));
+
   return <UserPage
     pageNumber={pageNumber}
     users={users[pageNumber]}
@@ -46,5 +50,7 @@ export const UsersPageRoute: FunctionComponent<UsersPageRouteProps> = () => {
     onPrevPage={onPrevPage}
     onNextPage={onNextPage}
     onSpecificPageClick={handleSpecificPageClick}
+    onCloseUsersError={onCloseUsersError}
+    onCloseUsersDownloadError={onCloseUsersDownloadError}
   />;
 };
