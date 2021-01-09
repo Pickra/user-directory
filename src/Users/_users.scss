@@ -9,7 +9,7 @@
 .user {
     --box-shadow: 0px 2px 2px 2px var(--brand-2);
 
-    margin: 0.5rem;
+    margin: 1rem;
     padding: 1rem;
     min-width: 16rem;
     box-shadow: 0px 0px 0px 1px var(--brand-2);
@@ -57,5 +57,10 @@
     
         min-height: 10vh;
         flex-direction: column;
+    }
+
+    &__download {
+        @include row;
+        margin: 1rem 0 0;
     }
 }

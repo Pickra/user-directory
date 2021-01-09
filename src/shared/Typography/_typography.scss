@@ -21,7 +21,7 @@ h1, h2, h3, h4, h5, h6, p, ul, ol, li {
 
 ul { list-style-type: none; }
 
-$headers: (h1: --h1, h2: --h1, h3: --h3, h4: --h4, h5: --h5, h6: --h6);
+$headers: (h1: --h1, h2: --h2, h3: --h3, h4: --h4, h5: --h5, h6: --h6);
 
 @each $prop, $val in $headers {
   $index: index($headers, ($prop $val));
@@ -32,7 +32,7 @@ $headers: (h1: --h1, h2: --h1, h3: --h3, h4: --h4, h5: --h5, h6: --h6);
     
     @if $index > 4 { margin-bottom: 0.5rem; }
 
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: 481px) {
       font-size: calc(var(#{$val}) - 1rem);
       @if $index > 3 { font-size: 1rem; }
     }

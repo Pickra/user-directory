@@ -43,7 +43,7 @@ export const UserPage: FunctionComponent<UserPageProps> = ({
       onNextClick={onNextPage}
       onSpecificPageClick={onSpecificPageClick}
     />
-    <div className='row'>
+    <div className='user-page__download'>
       <span>Download Users CSV </span>
       <Button onClick={downloadCsv} className='button--action'>
         Page # {pageNumber}

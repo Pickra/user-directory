@@ -29,6 +29,7 @@ export const Paginator: FunctionComponent<Props> = ({
                 className='button--primary'
                 disabled={page === 1}
             >Prev Page</Button>
+            <Button onClick={onNextClick} className='button--primary'>Next Page</Button>
             <form className='paginator__input' onSubmit={onInputPage}>
                 <Input
                     type='number'
@@ -37,7 +38,6 @@ export const Paginator: FunctionComponent<Props> = ({
                 />
                 <Button type='submit' className='button--action'>Go!</Button>
             </form>
-            <Button onClick={onNextClick} className='button--primary'>Next Page</Button>
         </div>
     </div>;
 };
