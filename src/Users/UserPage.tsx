@@ -1,12 +1,15 @@
 import { Link } from '@reach/router';
 import React, { Fragment, FunctionComponent } from 'react';
 import { Button } from '../shared/components/Buttons/Button';
+import { ErrorNotification } from '../shared/components/Errors/ErrorNotification';
 import { Paginator } from '../shared/components/Paginator/Paginator';
+import { UserErrorTypes } from '../store/store';
 import { UserData, UserList } from './User';
 
 interface UserPageProps {
   pageNumber: number;
   users: UserData[];
+  errors: UserErrorTypes;
   downloadCsv: () => void;
   onPrevPage: () => void;
   onNextPage: () => void;
@@ -14,29 +17,39 @@ interface UserPageProps {
 }
 
 export const UserPage: FunctionComponent<UserPageProps> = ({
-  pageNumber, users, downloadCsv, onPrevPage, onNextPage, onSpecificPageClick
-}) => <Fragment>
-  <h1 className='user__page-header'>Users page # {pageNumber}</h1>
-  <div className='row'>
-    <Link className='link' to='/'>Go Home</Link>
-  </div>
-  <Paginator
-    page={pageNumber}
-    onPrevClick={onPrevPage}
-    onNextClick={onNextPage}
-    onSpecificPageClick={onSpecificPageClick}
-  />
-  <div className='row'>
-    <span>Download Users CSV </span>
-    <Button onClick={downloadCsv} className='button--action'>
-      Page # {pageNumber}
-    </Button>
-  </div>
-  <UserList data={users} />
-  <Paginator
-    page={pageNumber}
-    onPrevClick={onPrevPage}
-    onNextClick={onNextPage}
-    onSpecificPageClick={onSpecificPageClick}
-  />
-</Fragment>;
+  pageNumber, users, errors, downloadCsv, onPrevPage, onNextPage, onSpecificPageClick
+}) => {
+  const userErrors = Object.keys(errors).reduce((acc, nxt) => {
+    return {
+      ...acc,
+      [nxt]: { name: errors[nxt], close: () => {}}
+    }
+  }, {});
+
+  return <Fragment>
+    <h1 className='user-page__header'>Users page # {pageNumber}</h1>
+    <ErrorNotification errors={userErrors} />
+    <div className='row'>
+      <Link className='link' to='/'>Go Home</Link>
+    </div>
+    <Paginator
+      page={pageNumber}
+      onPrevClick={onPrevPage}
+      onNextClick={onNextPage}
+      onSpecificPageClick={onSpecificPageClick}
+    />
+    <div className='row'>
+      <span>Download Users CSV </span>
+      <Button onClick={downloadCsv} className='button--action'>
+        Page # {pageNumber}
+      </Button>
+    </div>
+    <UserList data={users} />
+    <Paginator
+      page={pageNumber}
+      onPrevClick={onPrevPage}
+      onNextClick={onNextPage}
+      onSpecificPageClick={onSpecificPageClick}
+    />
+  </Fragment>
+};

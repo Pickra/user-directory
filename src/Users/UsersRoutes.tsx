@@ -3,6 +3,7 @@ import React, { FunctionComponent, useEffect } from 'react';
 import { useSelector, shallowEqual, useDispatch } from 'react-redux';
 import { UserPage } from './UserPage';
 import { getUsersState } from './state/UsersReducer';
+import { getErrorsState } from '../shared/components/Errors/ErrorReducer';
 import { getUsersThunk, downloadUsersCsvThunk } from './state/UsersThunks';
 
 interface UsersRouteProps extends RouteComponentProps {
@@ -13,10 +14,11 @@ export const UsersRoute: FunctionComponent<UsersRouteProps> = ({ children }) => 
     {children}
 </main>;
 
-interface UsersPageRoute extends RouteComponentProps {}
+interface UsersPageRouteProps extends RouteComponentProps {}
 
-export const UsersPageRoute: FunctionComponent<UsersPageRoute> = () => {
+export const UsersPageRoute: FunctionComponent<UsersPageRouteProps> = () => {
   const users = useSelector(getUsersState, shallowEqual);
+  const { userErrors } = useSelector(getErrorsState, shallowEqual)
   const { page } = useParams();
   const pageNumber = +page;
   const dispatch = useDispatch();
@@ -39,6 +41,7 @@ export const UsersPageRoute: FunctionComponent<UsersPageRoute> = () => {
   return <UserPage
     pageNumber={pageNumber}
     users={users[pageNumber]}
+    errors={userErrors}
     downloadCsv={downloadCsv}
     onPrevPage={onPrevPage}
     onNextPage={onNextPage}
