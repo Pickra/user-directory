@@ -1,13 +1,15 @@
 .errors {
-    padding: 0;
-    margin: 0 2rem;
+    padding: 0.5rem 3rem;
     
-    &--active {
-        border: 1px solid var(--danger-2);
-    }
+    &--active { background-color: var(--danger-2); }
 
     &__item {
         @include row;
+
         margin: 0.5rem;
+        padding: 0 1rem;
+        justify-content: space-between;
+        background-color: var(--danger-3);
+        border-radius: var(--border-radius);
     }
 }

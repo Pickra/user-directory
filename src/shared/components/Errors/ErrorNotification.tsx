@@ -11,18 +11,13 @@ interface Props {
 }
 
 export const ErrorNotification: FunctionComponent<Props> = ({ errors }) => {
-    const errorList = Object.keys(errors)
-        .map(key => {
-            const err = errors[key];
-            if (!err.name) { return undefined; }
+    const errorList = Object.values(errors)
+        .filter(val => !!val.name)
+        .map(val => <li className='errors__item' key={val.name}>
+            <strong>{val.name}</strong>
+            <Button className='button--danger' onClick={val.close}>Close</Button>
+        </li>);
 
-            return <li className='errors__item' key={key}>
-                {err.name}
-                <Button onClick={err.close} />
-            </li>;
-        })
-        .filter(Boolean);
-            
     const hasErrors = !!errorList.length;
     const ulClasses = `errors${!!hasErrors ? ' errors--active' : ''}`;
 
