@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { User, Users } from './User';
+import { User, UserList } from './User';
 import { first, last, dob, mockUsers } from './UserTestHelpers';
 import { defaultLoaderText } from '../shared/components/Loader/Loader';
 
@@ -14,9 +14,9 @@ describe('<User />', () => {
     });
 });
 
-describe('<Users />', () => {
+describe('<UserList />', () => {
     it('should render a loader when there are no users', () => {
-       const { getByText } = render(<Users data={[]} />);
+       const { getByText } = render(<UserList data={[]} />);
        expect(getByText(defaultLoaderText)).toBeInTheDocument();
     });
 });

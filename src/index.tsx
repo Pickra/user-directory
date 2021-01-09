@@ -4,21 +4,21 @@ import { Provider } from 'react-redux';
 import { Redirect, Router } from "@reach/router";
 
 import './index.scss';
-import { Main, MainContent } from './Main/Main';
 import { store } from './store/store';
 import * as serviceWorker from './serviceWorker';
 import { Home } from './Home/Home';
+import { UsersRoute, UsersPageRoute } from './Users/UsersRoutes';
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <Router basepath='/'>
         <Home path='/' />
-        {/* TODO: fix Main route so you don't need the redirect */}
+        {/* TODO: fix UsersRoute route so you don't need the redirect */}
         <Redirect to={'1'} from={'users'} noThrow />
-        <Main path='users'>
-          <MainContent path=':page' />
-        </Main>
+        <UsersRoute path='users'>
+          <UsersPageRoute path=':page' />
+        </UsersRoute>
       </Router>
       <footer className='row'>
         Copyright {new Date().getFullYear()}: Dragons And Unicorns

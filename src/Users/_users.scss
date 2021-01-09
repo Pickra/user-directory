@@ -16,7 +16,10 @@
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
 
-    &__name { word-break: break-word; }
+    &__name {
+        word-break: break-word;
+        text-align: center;
+    }
 
     &__header {
         @include row;

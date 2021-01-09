@@ -48,11 +48,11 @@ export const User: FunctionComponent<UserData> = ({
     </li>
 };
 
-interface UsersProps {
+interface UserListProps {
     data: UserData[];
 }
 
-export const Users: FunctionComponent<UsersProps> = ({ data }) => {
+export const UserList: FunctionComponent<UserListProps> = ({ data }) => {
     const showLoader = !data || !data.length;
 
     const userList = !showLoader
