@@ -1,7 +1,11 @@
 .errors {
-    padding: 0.5rem 3rem;
-    
-    &--active { background-color: var(--danger-2); }
+    padding: 0;
+    margin: 0;
+
+    &--active {
+        padding: 0.5rem 3rem;
+        background-color: var(--danger-2);
+    }
 
     &__item {
         @include row;
