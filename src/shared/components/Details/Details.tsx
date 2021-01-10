@@ -1,6 +1,6 @@
-import React, { FunctionComponent } from 'react';
+import React, { DetailsHTMLAttributes, FunctionComponent } from 'react';
 
-interface Props {
+interface Props extends DetailsHTMLAttributes<HTMLDetailsElement> {
     children: React.ReactNode | React.ReactNode[];
     title: string;
 }

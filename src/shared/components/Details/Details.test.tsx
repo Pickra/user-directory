@@ -7,7 +7,7 @@ expect.extend(toHaveNoViolations);
 
 describe('<Details />', () => {
     it('should be accessible', async () => {
-        const { container } = render(<Details title='🐈'><div>simply the best</div></Details>);
+        const { container } = render(<Details open={true} title='🐈'><div>simply the best</div></Details>);
 
         const results = await axe(container);        
         expect(results).toHaveNoViolations();
