@@ -1,4 +1,5 @@
 .details {
+    position: relative;
     &[open] &__content { animation: fadeIn 1s; }
 
     summary {

@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect, useRef, useState } from 'react';
+import React, { FunctionComponent } from 'react';
 import { Details } from '../shared/components/Details/Details';
 import { Loader } from '../shared/components/Loader/Loader';
 
@@ -19,34 +19,20 @@ export const User: FunctionComponent<UserData> = ({
     dob: { age },
     name: { first, last },
     picture: { large }
-}) => {
-    const liRef = useRef<HTMLLIElement>(null);
-    const [width, setWidth] = useState('');
-
-    useEffect(() => {
-        setTimeout(() => { // TODO: find a less hack way to handle the delay for getting the li width
-            if (liRef.current) {
-                const { width } = liRef.current.getBoundingClientRect();
-                setWidth(`${width - 48}px`);
-            }
-        }, 50);
-    }, [liRef]);
-
-    return <li className='user' ref={liRef}>
-        <h2 className='user__name'>{first} {last}</h2>
-        <div className='user__header'>
-            <img role='presentation' className='user__img' src={large} />
-        </div>
-        <Details title={`${first} ${last} Details`}>
-            <ul className='details__content user__details' style={{ width: width }}>
-                <li className='user__stat'><strong>Email:</strong> {email}</li>
-                <li className='user__stat'><strong>Phone:</strong> {phone}</li>
-                <li className='user__stat'><strong>Age:</strong> {age}</li>
-                <li className='user__stat'><strong>Gender:</strong> {gender}</li>
-            </ul>
-        </Details>
-    </li>
-};
+}) => <li className='user'>
+    <h2 className='user__name'>{first} {last}</h2>
+    <div className='user__header'>
+        <img role='presentation' className='user__img' src={large} />
+    </div>
+    <Details title={`${first} ${last} Details`}>
+        <ul className='details__content user__details'>
+            <li className='user__stat'><strong>Email:</strong> {email}</li>
+            <li className='user__stat'><strong>Phone:</strong> {phone}</li>
+            <li className='user__stat'><strong>Age:</strong> {age}</li>
+            <li className='user__stat'><strong>Gender:</strong> {gender}</li>
+        </ul>
+    </Details>
+</li>;
 
 interface UserListProps {
     data: UserData[];
