@@ -3,7 +3,7 @@ import { store } from '../../store/store';
 import { ADD_USERS } from './UsersActions';
 import { getUsersThunk } from './UsersThunks';
 
-jest.mock('../store/store');
+jest.mock('../../store/store');
 
 describe('getUsersThunk', () => {
     beforeEach(() => {
