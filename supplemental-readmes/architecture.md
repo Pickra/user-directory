@@ -4,9 +4,17 @@
 - [State Management](#state-management)
 
 ## Component Architecture
-Cool, cool, cool. wtf does that mean?!!!?!?!??!
+Cool, cool, cool. what does that mean?!!!?!?!??!
 
-ALL files related to a component (including tests, state files, styles, etc) go in that component's folder.
+ALL files related to a component (including tests, state files, styles, etc) go in that component's folder. Each component folder will vary in size dependning on the component's needs. 
+
+Options for when a folder gets too big:
+- Decouple child components/files
+- add nested folders
+  - subcomponent
+  - `state`
+  - util
+  - etc...
 
 ## Different Types of Components
 Stateful and Presentation component definitions unabashedly ripped off from:
@@ -56,4 +64,4 @@ State management isn't needed because the app isn't manipulating backend data.
 
 ### Needs State Management Examples
 - When the app loads; data needs to be fetched, added to state and displayed in the UI.
-- When a user clicks the "next" button, user data added to state and displayed in the UI.
+- When a user clicks the "next" button, user data is added to state and displayed in the UI.
