@@ -31,10 +31,13 @@ describe('<UserPage />', () => {
         const { container } = render(<UserPage
             pageNumber={1}
             users={[user]}
+            errors={{'🦄': ''}}
             downloadCsv={jest.fn()}
             onPrevPage={jest.fn()}
             onNextPage={jest.fn()}
             onSpecificPageClick={jest.fn()}
+            onCloseUsersDownloadError={jest.fn()}
+            onCloseUsersError={jest.fn()}
         />);
 
         await act(async() => {
